@@ -46,26 +46,25 @@ char *strncat(char *s1,char *s2,int n){
 }
 
 int strcmp(char *s1,char *s2){
-
-/*
-    もう少しシンプルにできそう
-*/
-    while(1){
-        if(*s1 == *s2){
-            s1++;
-            s2++;
-        }else{
-            return (unsigned int)s1 - (unsigned int)s2;
-        }
+    while(*s1 == *s2){
+        if(*s1 =='\0')
+            return 0;
+        s1++;
+        s2++;
     }
+    return (unsigned int)*s1 - (unsigned int)*s2;
 }
+
 int strncmp(char *s1,char *s2,int n){
-/*
-    これから
+    while(n && *s1 && *s2){
+        if(*s1 != *s2)
+            return (unsigned int)*s1 - (unsigned int)*s2;
+        n--;
+        s1++;
+        s2++;
+    }
+    if(!n) return 0;
+    if(*s1) return 1;
 
-*/
+    return -1;
 }
-
-
-
-
