@@ -47,6 +47,9 @@ char *strncat(char *s1,char *s2,int n){
 
 int strcmp(char *s1,char *s2){
 
+/*
+    もう少しシンプルにできそう
+*/
     while(1){
         if(*s1 == *s2){
             s1++;
@@ -57,7 +60,10 @@ int strcmp(char *s1,char *s2){
     }
 }
 int strncmp(char *s1,char *s2,int n){
+/*
+    これから
 
+*/
 }
 
 
