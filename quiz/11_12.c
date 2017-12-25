@@ -13,12 +13,24 @@ double strtof(const char *nptr);
 int strtoi(const char *nptr){
 
     int temp[128] = {0};
-    int i,j,n,sum,num;
+    int i,j,n,sum,num,sign;
     i = j = n = sum = num = 0;
+    /*
+     + - の符号に対応
+    */
+    sign = 1;
+    if(*nptr == '-'){
+        nptr++;
+        sign = -1;
+    }else if(*nptr == '+'){
+        nptr++;
+        sign = 1;
+    }
     /*
     数字文字列を一桁の数値に変換
     配列に格納
     */
+
     while(*nptr){
         temp[n] = ((int)*nptr++) - 48;
         printf("temp[%d] = %d\n",n, temp[n]);
@@ -36,6 +48,7 @@ int strtoi(const char *nptr){
         }
         sum += num;
     } 
+    sum *= sign;
     return sum;
 }
 long   strtol(const char *nptr);
