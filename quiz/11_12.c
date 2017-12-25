@@ -33,10 +33,10 @@ int strtoi(const char *nptr){
 
     while(*nptr){
         temp[n] = ((int)*nptr++) - 48;
-        printf("temp[%d] = %d\n",n, temp[n]);
+        //printf("temp[%d] = %d\n",n, temp[n]);
         n++;
     }
-    printf("n = %d\n",n);
+   // printf("n = %d\n",n);
     /*
     桁の重みづけを行う
     配列から一つの数値に変換する
@@ -51,13 +51,40 @@ int strtoi(const char *nptr){
     sum *= sign;
     return sum;
 }
-long   strtol(const char *nptr);
+//文字chは空白類文字か
+int is_whitespace(int ch){
+
+    return ch == ' '|| ch == '\f' || ch == '\n' ||
+           ch == '\r'|| ch == '\t' || ch == '\v';
+}
+long strtol(const char *nptr){
+    int sign = 1;//符号
+    long x = 0;  //変換した整数
+    
+    //空白類文字を読み飛ばす
+    while(is_whitespace(*nptr))
+        nptr++;
+    //符号チェック
+    switch(*nptr){
+        case '+' :
+            nptr++;
+            break;
+        case '-' :
+            nptr++;
+            sign = -1;
+            break;
+    }
+    for(x = 0; *nptr >='0' && '9' >= *nptr; nptr++){
+        x = x * 10 + (*nptr - '0');
+    }
+    return sign * x;
+}
 double strtof(const char *nptr);
 
 int main(void){
     char str[128];
     scanf("%s",str);
-    printf("%d\n",strtoi(str));
+    printf("strtol(Str) = %ld\n",strtol(str));
 
    return 0;
 }
