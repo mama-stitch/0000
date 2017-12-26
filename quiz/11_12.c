@@ -79,12 +79,45 @@ long strtol(const char *nptr){
     }
     return sign * x;
 }
-double strtof(const char *nptr);
+double strtof(const char *nptr){
+
+    int sign = 1;
+    double x;
+    double dec;
+    //空白類文字を読み飛ばす
+    while(is_whitespace(*nptr))
+        nptr++;
+    //符号チェック
+    switch(*nptr){
+        case '+' :
+            nptr++;
+            break;
+        case '-' :
+            nptr++;
+            sign = -1;
+            break;
+    }
+    //整数部分
+    for(x = 0.0; *nptr >='0' && '9' >= *nptr; nptr++){
+        x = x * 10 + (*nptr - '0');
+    }
+
+    if(*nptr == '.')
+        nptr++;
+    //整数部+ 小数部分
+    for(dec = 1.0; *nptr >='0' && '9' >= *nptr; nptr++){
+        x = x + (dec /= 10) * (*nptr - '0');
+    }
+
+
+    return x * sign;
+}
 
 int main(void){
     char str[128];
     scanf("%s",str);
     printf("strtol(Str) = %ld\n",strtol(str));
+    printf("strtof(Str) = %lf\n",strtof(str));
 
    return 0;
 }
