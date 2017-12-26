@@ -6,12 +6,8 @@
 
 */
 int min2(int a, int b){
-    int min = a;
 
-    if(min > b)
-        min = b;
-
-    return min;
+    return (a < b) ? a : b;
 
 }
 int main(void){
