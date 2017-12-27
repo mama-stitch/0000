@@ -3,7 +3,8 @@
 ７人の学生の点数を読み込んで合格者６０点以上の一覧を表示する
 一覧表示は独立した関数とする
 */
-#define SIZE 7 //学生人数
+#define SIZE 7     //学生人数
+int student[SIZE]; // 点数の配列 
 
 /*
 学生全員の点数を入力
@@ -18,8 +19,10 @@ void scanf_int_array(int *num,int n){
 /*
 ６０点以上の学生の点数を出力
 */
-void print_pass(int *student){
+void print_pass(void){
     int i;
+    extern int student[SIZE];
+
     printf("合格者\n");
     for(i = 0; i < SIZE; i++){
         if(student[i] > 60)
@@ -27,9 +30,11 @@ void print_pass(int *student){
     }
 }
 int main(void){
+    
     setvbuf(stdout,NULL,_IONBF,0);
+
     int i;
-    int student[SIZE];
+    extern int student[SIZE];
 
     scanf_int_array(student,SIZE);
 
@@ -37,7 +42,7 @@ int main(void){
         printf("%d\n",student[i]);
     }
 
-    print_pass(student);
+    print_pass();
 
     return 0;
 }
