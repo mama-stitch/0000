@@ -1,7 +1,7 @@
-# 1 "7_8.c"
+# 1 "8_4.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "7_8.c"
+# 1 "8_4.c"
 # 1 "c:\\mingw\\include\\stdio.h" 1 3
 # 38 "c:\\mingw\\include\\stdio.h" 3
        
@@ -437,69 +437,32 @@ int vswscanf (const wchar_t *__restrict__, const wchar_t * __restrict__, __built
 
 
 
-# 2 "7_8.c" 2
-# 1 "c:\\mingw\\include\\limits.h" 1 3
-# 34 "c:\\mingw\\include\\limits.h" 3
-       
-# 35 "c:\\mingw\\include\\limits.h" 3
-# 3 "7_8.c" 2
+# 2 "8_4.c" 2
 
 
 
 
-
-# 7 "7_8.c"
-int count_bits(unsigned x){
-   int i;
-   int count = 0;
-   while(x){
-       if(x & 1U)
-           count++;
-       x >>= 1;
-   }
-
-   return count;
-}
-int int_bits(unsigned x){
-    int i;
-    int count = 0;
-    for(i = count_bits(
-# 21 "7_8.c" 3
-                      0xFFFFFFFF
-# 21 "7_8.c"
-                              ) - 1; i >= 0; i--){
-        count++;
-        putchar((x >> i) & 1U ? '1' : '0');
-    }
-
-    return count;
-}
-
-unsigned rrotate(unsigned x, int n){
-    n = n % count_bits(
-# 30 "7_8.c" 3
-                      0xFFFFFFFF
-# 30 "7_8.c"
-                              );
-    return ((x >> n) | (x << count_bits(
-# 31 "7_8.c" 3
-                                       0xFFFFFFFF
-# 31 "7_8.c"
-                                               ) - n));
-}
-void print_bits(unsigned x){
-    int_bits(x);
-}
-
+# 5 "8_4.c"
 int main(void){
-    unsigned x = 298;
-    int n = 10;
-
-    printf("rrotate(%uを,みぎに%dしふと) = %u\n",x,n,rrotate(x,n));
-
-    print_bits(x);
-    putchar('\n');
-    print_bits(rrotate(x,n));
+    setvbuf(
+# 6 "8_4.c" 3
+           (&_iob[1])
+# 6 "8_4.c"
+                 ,
+# 6 "8_4.c" 3 4
+                  ((void *)0)
+# 6 "8_4.c"
+                      ,
+# 6 "8_4.c" 3
+                       0x0004
+# 6 "8_4.c"
+                             ,0);
+    int n;
+    printf("in > ");
+    scanf("%d",&n);
+    if(n)
+        (printf("/a/a")),puts("not 0\n");
+    else
+        (printf("/a/a")),puts("00000\n");
     return 0;
-
 }
