@@ -1,7 +1,7 @@
-# 1 "8_4.c"
+# 1 "8_5_1.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "8_4.c"
+# 1 "8_5_1.c"
 # 1 "c:\\mingw\\include\\stdio.h" 1 3
 # 38 "c:\\mingw\\include\\stdio.h" 3
        
@@ -437,32 +437,58 @@ int vswscanf (const wchar_t *__restrict__, const wchar_t * __restrict__, __built
 
 
 
-# 2 "8_4.c" 2
+# 2 "8_5_1.c" 2
 
 
 
 
-# 5 "8_4.c"
+
+
+# 7 "8_5_1.c"
+void bsort(int *num, int n){
+   int i,j;
+   for(i = 0; i < n; i++){
+       for(j = 0; j < n - 1; j++){
+           if(num[j] > num[j + 1]){
+              do{ int temp = num[j]; num[j] = num[j + 1]; num[j + 1] = temp; }while(0);
+
+
+
+
+           }
+       }
+
+   }
+
+}
 int main(void){
+
+    int num[5];
+    int i;
     setvbuf(
-# 6 "8_4.c" 3
+# 27 "8_5_1.c" 3
            (&_iob[1])
-# 6 "8_4.c"
-                 ,
-# 6 "8_4.c" 3 4
-                  ((void *)0)
-# 6 "8_4.c"
-                      ,
-# 6 "8_4.c" 3
-                       0x0004
-# 6 "8_4.c"
-                             ,0);
-    int n;
-    printf("in > ");
-    scanf("%d",&n);
-    if(n)
-        (printf("/a/a")),puts("not 0\n");
-    else
-        (printf("/a/a")),puts("00000\n");
+# 27 "8_5_1.c"
+                 , 
+# 27 "8_5_1.c" 3 4
+                   ((void *)0)
+# 27 "8_5_1.c"
+                       ,
+# 27 "8_5_1.c" 3
+                        0x0004
+# 27 "8_5_1.c"
+                              ,0);
+
+    for(i = 0; i < 5; i++){
+        printf("num[%d] = ", i);scanf("%d",&num[i]);
+    }
+
+    bsort(num,5);
+    putchar('\n');
+
+    for(i = 0; i < 5; i++){
+        printf("num[%d] = %d\n",i,num[i]);
+    }
     return 0;
+
 }
