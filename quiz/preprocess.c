@@ -1,7 +1,7 @@
-# 1 "8_5_1.c"
+# 1 "8_13.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "8_5_1.c"
+# 1 "8_13.c"
 # 1 "c:\\mingw\\include\\stdio.h" 1 3
 # 38 "c:\\mingw\\include\\stdio.h" 3
        
@@ -437,58 +437,52 @@ int vswscanf (const wchar_t *__restrict__, const wchar_t * __restrict__, __built
 
 
 
-# 2 "8_5_1.c" 2
+# 2 "8_13.c" 2
 
 
 
 
 
 
-# 7 "8_5_1.c"
-void bsort(int *num, int n){
-   int i,j;
-   for(i = 0; i < n; i++){
-       for(j = 0; j < n - 1; j++){
-           if(num[j] > num[j + 1]){
-              do{ int temp = num[j]; num[j] = num[j + 1]; num[j + 1] = temp; }while(0);
 
 
-
-
-           }
-       }
-
-   }
-
-}
+# 9 "8_13.c"
 int main(void){
 
-    int num[5];
-    int i;
-    setvbuf(
-# 27 "8_5_1.c" 3
-           (&_iob[1])
-# 27 "8_5_1.c"
-                 , 
-# 27 "8_5_1.c" 3 4
-                   ((void *)0)
-# 27 "8_5_1.c"
-                       ,
-# 27 "8_5_1.c" 3
-                        0x0004
-# 27 "8_5_1.c"
-                              ,0);
+    int n1 = 21;
+    int n2 = 6;
+    int n3 = 0;
+    int x = 15;
+    int y = 5;
+    printf("x = %d, y = %d \n",x,y);
+    printf("diff(x++,y) = %d = 10\n",((x++) > (y) ? ((x++)-(y)) : ((y)-(x++))));
+    printf("diff(++x,y) = %d = 12\n",((++x) > (y) ? ((++x)-(y)) : ((y)-(++x))));
+    printf("diff(%d,%d) = %d\n",n1,n2,((n1) > (n2) ? ((n1)-(n2)) : ((n2)-(n1))));
+    printf("diff(%d,%d) = %d\n",n2,n1,((n2) > (n1) ? ((n2)-(n1)) : ((n1)-(n2))));
+    printf("min_of(%d,%d) = %d\n",n2,n1,((n2) > (n1) ? (n1) : (n2)));
+    printf("min_of(%d,%d) = %d\n",n2,n1,((n2) > (n1) ? (n1) : (n2)));
+    printf("max_of(%d,%d) = %d\n",n1,n2,((n1) > (n2) ? (n1) : (n2)));
+    printf("max_of(%d,%d) = %d\n",n2,n1,((n2) > (n1) ? (n2) : (n1)));
+    printf("abs(-%d) = %d \n",n1,((-n1) > 0 ? (-n1) : (- -n1)));
+    printf("abs(%d) = %d \n",n1,((n1) > 0 ? (n1) : (-n1)));
+    printf("sqr(%d) = %d \n",n1,((n1)*(n1)));
+    printf("cube(%d) = %d \n",n1,((n1)*(n1)*(n1)));
+    printf("21,6     n1   = %2d ,n2   = %2d\n",n1 ,n2);
+    printf("6 ,0     n2   = %2d ,n3   = %2d\n",n2 ,n3);
+    printf("21,6     n1++ = %2d ,n2++ = %2d\n",n1++ ,n2++);
+    printf("1 ,7     1    = %2d ,n2   = %2d\n",1 ,n2);
+    printf("22,7     n1 = %2d   ,n2   = %2d\n",n1 ,n2);
+    printf("%2d,7    n1 = (n1,n2)\n",n1 = (n1,n2));
+    printf("%2d,7    n1 / (n2,++n3)\n",n1 / (n2,++n3));
+    printf("\a");
+    printf("\b");
+    printf("\\");
+    printf("\r");
+    printf("\'");
+    printf("\n");
+    printf("\t");
+    printf("\"");
 
-    for(i = 0; i < 5; i++){
-        printf("num[%d] = ", i);scanf("%d",&num[i]);
-    }
-
-    bsort(num,5);
-    putchar('\n');
-
-    for(i = 0; i < 5; i++){
-        printf("num[%d] = %d\n",i,num[i]);
-    }
     return 0;
 
 }
