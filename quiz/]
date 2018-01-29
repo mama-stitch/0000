@@ -1,0 +1,15 @@
+#include<stdio.h>
+
+void null_string(char s[]){
+
+}
+int main(void){
+
+    char str[128];
+    scanf("%s",str);
+
+    printf("\n %s \n",str);
+
+    return 0;
+
+}
