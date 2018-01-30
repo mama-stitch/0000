@@ -3,10 +3,11 @@
 #include<time.h>
 
 int main(void){
+
     setvbuf(stdout,NULL,_IONBF,0);
     srand(time(NULL));
 
-    int ans = rand();
+    int ans = rand() % 999 + 1;
     int n;
 
     do{
