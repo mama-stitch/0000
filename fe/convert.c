@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 //void convert(const char *, const char *,char *);
+
 /*
 path    変換前のパス
 base    カレントディレクトリの絶対パス
