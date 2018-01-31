@@ -5,8 +5,9 @@
 
 void print_history(int history[],int ans,int stage){
     int i;
-    for(i = 1; i <= stage; i++){ 
-        printf("%d回目 : 入力値%d : ( %d )\n",i ,history[i],history[i] - ans);
+    for(i = 0; i < stage; i++){ 
+        printf("%d回目 : 入力値%d : ( %d )\n",
+            i+1 ,history[i],history[i] - ans);
     }
 
 }
@@ -27,9 +28,9 @@ int main(void){
         stage++;
 
         if(no > ans){
-            printf("答えはもっとちいさいよ\n");
+            printf("\a答えはもっとちいさいよ\n");
         }else if(no < ans){
-            printf("答えはもっとおおきいよ\n");
+            printf("\a答えはもっとおおきいよ\n");
         }
     }while( stage < MAX_STAGE && ans != no);
     //当たるまで　||　回数制限まで
@@ -37,7 +38,7 @@ int main(void){
     if(ans == no){
         printf("%d回であたりました！\n",stage);
     }else{
-        printf("残念はずれ　答えは%d \n",ans);
+        printf("\a残念はずれ　答えは%d \n",ans);
     }
     //履歴表示
     puts("----入力履歴----");
