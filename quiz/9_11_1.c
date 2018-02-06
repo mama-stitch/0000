@@ -8,12 +8,10 @@ void deli_digit(char s[]){
     int i = 0;
     int j = 0;
     while(s[i]){
-        if(s[i] < '0' || s[i] > '9'){
-            //s[i]が数字文字じゃなければ
-            s[j++] = s[i++]; 
-        }else{
-            i++;
-        }
+        //s[i]が数字文字じゃなければ
+        if(s[i] < '0' || s[i] > '9')
+            s[j++] = s[i]; 
+        i++;
     }
     s[j] = '\0';
 }
