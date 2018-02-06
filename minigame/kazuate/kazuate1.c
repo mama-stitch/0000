@@ -19,7 +19,6 @@ int main(void){
             printf("答えはもっと大きい\n");
         }else if(ans == n){
             printf("正解です\n");
-            break;
         }
     }while(ans != n);
     printf("終了");
