@@ -1,0 +1,13 @@
+#include<stdio.h>
+
+
+int main(void){
+
+    printf("test");
+    printf("\rabcd");
+    printf("\ryahoo");
+
+
+    reutrn 0;
+
+}
