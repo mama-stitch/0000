@@ -3,33 +3,31 @@
 
 int sleep(unsigned long x){
 
-
-    clock_t c1 = clock();
-    clock_t c2;
+    clock_t c1 = clock(),c2;
 
     do{
         if((c2 = clock()) == (clock_t)-1)
             return 0;
 
-    }while((c2-c1)*1000.0 / CLOCKS_PER_SEC < x);
+    }while(1000.0 * (c2 - c1) / CLOCKS_PER_SEC < x);
 
 }
 
-
 int main(void){
-    setvbuf(stdout,NULL, _IONBF,0);
+    setvbuf(stdout,NULL,_IONBF,0);
 
-    printf("test");
-    fflush(stdout);
-    sleep(1000);
 
-    printf("\rabcd");
-    fflush(stdout);
-    sleep(1000);
+    int i;
+    for(i = 0; i < 10; i++){
+        printf("\rtest!");
+        sleep(1000);
+        fflush(stdout);
+        printf("\rcheck");
+        sleep(1000);
+        fflush(stdout);
+    }
 
-    printf("\ryahoo");
-    fflush(stdout);
-    sleep(1000);
+    printf("test\n");
 
     return 0;
 
