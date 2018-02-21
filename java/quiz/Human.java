@@ -21,4 +21,10 @@ public class Human{
    int getWeight(){
        return weight;
    }
+   void gainWeight(int w){
+       weight += w;
+   }
+   void reduceWeight(int w){
+       weight -= w;
+   }
 }
