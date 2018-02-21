@@ -1,22 +1,16 @@
 public class HumanTester{
     public static void main(String[] args){
-        Human suzuki = new Human();
-        Human takada = new Human();
+        Human suzuki = new Human("鈴木",168,60);
+        Human takada = new Human("高田",185,76);
 
-        suzuki.name = "鈴木";
-        suzuki.height = 168;
-        suzuki.weight = 60;
 
-        takada.name = "高田";
-        takada.height = 185;
-        takada.weight = 76;
 
-        System.out.println(suzuki.name);
-        System.out.println(suzuki.height);
-        System.out.println(suzuki.weight);
+        System.out.println(suzuki.getName());
+        System.out.println(suzuki.getHeight());
+        System.out.println(suzuki.getWeight());
 
-        System.out.println(takada.name);
-        System.out.println(takada.height);
-        System.out.println(takada.weight);
+        System.out.println(takada.getName());
+        System.out.println(takada.getWeight());
+        System.out.println(takada.getWeight());
     }
 }
