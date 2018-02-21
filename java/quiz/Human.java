@@ -1,6 +1,7 @@
 /*
 人間クラス
 */
+
 public class Human{
 
    private String  name;

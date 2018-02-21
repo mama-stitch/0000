@@ -1,4 +1,4 @@
-public class HumanTester{
+PUblic class HumanTester{
     public static void main(String[] args){
         Human suzuki = new Human("鈴木",168,60);
         Human takada = new Human("高田",185,76);
