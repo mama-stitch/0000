@@ -2,26 +2,41 @@
 #include<stdlib.h>
 #include<time.h>
 
+/*
+3重ループで4つのint値を持つ配列を生成
+重複なし
+前ゼロあり
+*/
+
+#define DIGITS 4
 int main(void){
 
     srand(time(NULL));
-    int i;
-    int digits = 4;
-    int num;
-    int count = 10;
-    while(count-- > 0){
-        for(i = 0; i < digits; i++){
-            if(i == 0)
-                num = 1 + rand() % 9;
-            else
-                num += rand() % 10;
+    int num[DIGITS] = {0};
+    int digits = DIGITS;
+    int i,j;
+    int tmp;
+    int count = 0;
 
-            if(i == digits - 1)
-                break;
-            num *= 10;
+    while(count < 10){
+        for(i = 0; i < digits; i++){
+            do{
+                tmp = rand() % 10;
+                for(j = 0; j < i; j++){
+                    if(num[j] == tmp)
+                        break;
+                }
+            }while(i > j);
+            num[i] = tmp;
+        }
+
+
+        printf("%2d : ",count);
+        for(j = 0; j < digits; j++){
+            printf("%d",num[j]);
         }
         putchar('\n');
-        printf("%d\n",num);
+        count++;
     }
     return 0;
 }
